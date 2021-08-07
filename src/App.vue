@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="app">
     <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -7,7 +7,15 @@
   <router-view/>
  </div>
 </template>
-
+<script lang="ts">
+import { Options, setup, Vue } from 'vue-class-component';
+@Options({
+  created(){
+     this.$store.dispatch("userStore/changeUserName", '游客');
+  }
+})
+export default class app extends Vue {}
+</script>
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
